@@ -29,7 +29,7 @@ class User
         }
     }
 
-    public function registerLoginInfo($email, $password) {
+    public function registerUser($email, $password) {
         if ($this->validateEmail($email)) {
             return false;
         }
