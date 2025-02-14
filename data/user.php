@@ -54,6 +54,22 @@ class User
         $_SESSION['userId'] = $userId;
         return $_SESSION['userId'];
     }
+
+    public function loginUser($email, $password) {
+        $sql = "SELECT * FROM loginInfo WHERE email = :email";
+        $user = $this->pdo->run($sql, ["email" => $email])->fetch();
+    
+        if (!$user) {
+            return false;
+        }
+    
+        if (password_verify($password, $user['password_hash'])) {
+            $_SESSION['userId'] = $user['userId'];
+            return true;
+        } else {
+            return false;
+        }
+    }
 }
 
 $User = new User($pdo);
