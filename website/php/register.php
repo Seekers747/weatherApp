@@ -49,20 +49,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="../css/notification.css">
   </head>
   <body>
-    <form id="inloggegevensform" method="POST" class="container my-2">
-      <h2>Inloggen</h2>
+    <form id="registerform" method="POST" class="container my-2">
+      <h2>Login</h2>
       <div class="row mb-3 justify-content-center">
         <div class="col-md-5">
-          <label for="email" class="form-label">Email</label>
+          <label for="email" class="form-label">Email:</label>
           <input type="email" class="form-control" name="email" placeholder="user@example.com" required>
         </div>
         <div class="col-md-5">
-          <label for="password" class="form-label">Password</label>
+          <label for="password" class="form-label">Password:</label>
           <input type="password" class="form-control" name="password" placeholder="***********" minlength="8" maxlength="20" required>
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-outline-light" style="width: 300px;">Registreer</button>
+        <button type="submit" class="btn btn-styling" style="width: 300px;">Register</button>
       </div>
     </form>
     <script>
