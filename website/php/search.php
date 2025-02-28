@@ -9,7 +9,7 @@
                 <h2 class='notification-text-error'>The search field is empty!</h2>
               </div>";
       } else {
-        $api_data = file_get_contents("https://api.openweathermap.org/data/2.5/weather?q=". $_GET['city'] ."&appid=050fa92090b4a55a4ed4686308f7db9e");
+        header("Location: city.php?city=". $_GET['city']);
       }
     } catch (\Exception $e) {
       echo "<p class='text-danger'>An error has occurred: ". $e->getMessage(). "</p>";
@@ -29,7 +29,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
   </head>
   <body>
-    <form id="searchForm" method="GET" action="search.php">
+    <form id="searchForm" method="GET">
       <div class="input-group">
         <input type="text" class="form-control" placeholder="Amsterdam" name="city">
         <button type="submit" class="btn btn-primary">Search</button>
