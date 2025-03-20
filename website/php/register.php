@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="../css/notification.css">
   </head>
 
-  <body class="dark-mode">
+  <body>
     <div class="clouds">
       <div class="cloud x1"></div>
       <div class="cloud x2"></div>
@@ -65,6 +65,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     </div>
 
     <form id="registerform" method="POST" class="container my-2">
+      <div>
+        <input type="checkbox" id="darkmode-toggle">
+        <label class="darkmode-label" for="darkmode-toggle">
+      </div>
       <h2>Register</h2>
       <div class="row mb-3 justify-content-center">
         <div class="col-md-5">
@@ -80,14 +84,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <button type="submit" class="btn btn-styling" style="width: 300px;">Register</button>
       </div>
     </form>
-    <script>
-      setTimeout(function() {
-        var notification = document.querySelector('.notification-error');
-        if (notification) {
-          notification.remove();
-        }
-      }, 5000);
-    </script>
+    <script src="../js/form.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
   
