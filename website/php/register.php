@@ -50,7 +50,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="../css/notification.css">
   </head>
 
-  <body>
+  <body class="dark-mode">
     <div class="clouds">
       <div class="cloud x1"></div>
       <div class="cloud x2"></div>
@@ -62,7 +62,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <div class="cloud x8"></div>
       <div class="cloud x9"></div>
       <div class="cloud x10"></div>
-      <div class="cloud x11"></div>
     </div>
 
     <form id="registerform" method="POST" class="container my-2">

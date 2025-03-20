@@ -161,3 +161,22 @@ Clouds
 .x9 { left: var(--cloud-9-left); top: var(--cloud-9-top); animation: var(--cloud-9-animation-duration); }
 .x10 { left: var(--cloud-10-left); top: var(--cloud-10-top); animation: var(--cloud-10-animation-duration); }
 
+body.dark-mode {
+    --primary-text-color: rgb(200, 200, 200);
+    --background-color: rgba(0, 0, 0, 0.4);
+    --hover-background-color: rgba(0, 0, 0, 0.6);
+    --border-color: rgba(0, 0, 0, 0.6);
+    --box-shadow-color: rgba(255, 255, 255, 0.1);
+    background-color: rgb(3, 31, 58);
+
+    .btn-styling {
+        color: gray;
+        background-color: rgba(0, 0, 0, 0.4);
+        transition: background-color 0.3s;
+    }
+
+    .btn-styling:hover {
+        color: white;
+        background-color: rgba(0, 0, 0, 0.6);
+    }
+}
