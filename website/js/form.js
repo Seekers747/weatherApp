@@ -1,3 +1,6 @@
+let checkMenu = false;
+const burgerMenu = document.querySelector('.burger-menu');
+
 setTimeout(function() {
     var notification = document.querySelector('.notification-error');
     if (notification) {
@@ -22,3 +25,8 @@ darkmodeToggle.addEventListener('change', () => {
         localStorage.setItem('darkmode', 'disabled');
     }
 });
+
+function toggleBurgerMenu() {
+    checkMenu = !checkMenu;
+    burgerMenu.style.left = checkMenu ? "0vw" : "100vw";
+}
