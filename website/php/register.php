@@ -53,13 +53,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
   <body>
     <div class="navbar">
-      <div class="logo"><a href="#">GetterWeather</a></div>
+      <div class="logo"><a href="#">SkySync</a></div>
       <ul class="links" style="margin-left: 0; padding-left: 0;">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="home.php">Home</a></li>
+        <li><a href="about.php">About</a></li>
+        <li><a href="contact.php">Contact</a></li>
+        <li><a href="login.php">Login</a></li>
       </ul>
-      <div>
+      <div style="padding-top: 5px;">
         <input type="checkbox" id="darkmode-toggle">
         <label class="darkmode-label" for="darkmode-toggle">
       </div>
@@ -68,11 +69,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </div>
     </div>
 
+    <div class="lower-nav">
+      <a href="login.php">Login</a>
+      <a href="register.php">Register</a>
+    </div>
+
     <div class="burger-menu">
       <ul class="links">
-        <li><a href="#">Home</a></li><hr>
-        <li><a href="#">About</a></li><hr>
-        <li><a href="#">Contact</a></li><hr>
+        <li><a href="home.php">Home</a></li><hr>
+        <li><a href="about.php">About</a></li><hr>
+        <li><a href="contact.php">Contact</a></li><hr>
+        <li><a href="login.php">Login</a></li><hr>
       </ul>
     </div>
 
@@ -114,20 +121,22 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="cloud x16"></div>
     </div>
 
-    <form id="registerform" method="POST" class="container my-2">
-      <h2>Register</h2>
+    <form id="loginform" method="POST" class="container my-2">
+      <h2>Login</h2>
       <div class="row mb-3 justify-content-center">
         <div class="col-md-5">
           <label for="email" class="form-label">Email:</label>
           <input type="email" class="form-control" name="email" placeholder="user@example.com" required>
         </div>
+      </div>
+      <div class="row mb-3 justify-content-center">
         <div class="col-md-5">
           <label for="password" class="form-label">Password:</label>
           <input type="password" class="form-control" name="password" placeholder="***********" minlength="8" maxlength="20" required>
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-styling" style="width: 300px;">Register</button>
+        <button type="submit" class="btn btn-styling" style="width: 300px;">login</button>
       </div>
     </form>
     <script src="../js/form.js"></script>

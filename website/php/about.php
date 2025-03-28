@@ -1,38 +1,10 @@
-<?php
-require "../../data/user.php";
-
-if (session_status() == PHP_SESSION_NONE) {
-    session_start();
-}
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
-
-    $result = $User->loginUser($email, $password);
-
-    if ($result === false) {
-        echo "<div class='notification-error'><h2 class='notification-text-error'>Email or password incorrect!</h2></div>";
-    } else {
-        if (isset($_SESSION['userId'])) {
-            echo "<div class='notification-pass'>
-                    <h2 class='notification-text-pass'>You will be redirected in 5 seconds!</h2>
-                  </div>";
-            header("Refresh:5; url=home.php");
-        } else {
-            var_dump("userId not found in session.");
-        }
-    }
-}
-?>
-
 <!doctype html>
 <html lang="en">
 
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Home</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/form.css">
     <link rel="stylesheet" href="../css/notification.css">
@@ -50,16 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </ul>
       <div style="padding-top: 5px;">
         <input type="checkbox" id="darkmode-toggle">
-        <label class="darkmode-label" for="darkmode-toggle">
+        <label class="darkmode-label" for="darkmode-toggle"></label>
       </div>
       <div class="burger" onclick="toggleBurgerMenu()">
         <i class="fas fa-solid fa-bars"></i>
       </div>
-    </div>
-
-    <div class="lower-nav">
-      <a href="login.php">Login</a>
-      <a href="register.php">Register</a>
     </div>
 
     <div class="burger-menu">
@@ -108,24 +75,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="cloud x15"></div>
       <div class="cloud x16"></div>
     </div>
-    <form id="loginform" method="POST" class="container my-2">
-      <h2>Login</h2>
-      <div class="row mb-3 justify-content-center">
-        <div class="col-md-5">
-          <label for="email" class="form-label">Email:</label>
-          <input type="email" class="form-control" name="email" placeholder="user@example.com" required>
-        </div>
-      </div>
-      <div class="row mb-3 justify-content-center">
-        <div class="col-md-5">
-          <label for="password" class="form-label">Password:</label>
-          <input type="password" class="form-control" name="password" placeholder="***********" minlength="8" maxlength="20" required>
-        </div>
-      </div>
-      <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-styling" style="width: 300px;">login</button>
-      </div>
+
+    <form id="about-block" method="POST" class="container my-2">
+        <h2>Over SkySync</h2>
+        <p>Welkom bij <strong>SkySync</strong>, de ultieme weer-app voor al je weersvoorspellingen en actuele updates! Onze missie is om gebruikers nauwkeurige en realtime weersinformatie te bieden via een gebruiksvriendelijke interface.</p>
+
+        <h2>Wat doet SkySync?</h2>
+        <p>SkySync biedt gedetailleerde weersvoorspellingen voor tot wel 9 dagen vooruit. Of je nu onderweg bent, thuisblijft, of plannen maakt voor het weekend, SkySync geeft je de juiste informatie zodat je altijd voorbereid bent op het weer.</p>
+
+        <h2>Onze Kenmerken</h2>
+        <p>Realtijd weersinformatie en waarschuwingen</p>
+        <p>Gedetailleerde 9-daagse weersvoorspelling</p>
+        <p>Gebruiksvriendelijke interface en gemakkelijke navigatie</p>
+        <p>Weersinformatie op basis van jouw locatie</p>
+
+        <h2>Waarom SkySync?</h2>
+        <p>SkySync is meer dan alleen een weer-app; het is een betrouwbare metgezel voor je dagelijkse planning. Wij geloven in het bieden van zowel snelheid als nauwkeurigheid, zodat je altijd goed voorbereid bent, ongeacht de weersomstandigheden.</p>
+
+        <h2>Onze Toekomst</h2>
+        <p>We blijven werken aan verbeteringen en nieuwe functies voor SkySync, zoals het toevoegen van gepersonaliseerde waarschuwingen en uitgebreide weersgrafieken. We willen dat SkySync jouw go-to app wordt voor alles wat met het weer te maken heeft!</p>
+
+        <h2>Contacteer ons</h2>
+        <p>Heb je feedback, suggesties of vragen? Neem gerust contact met ons op via onze <a href="/contact">contactpagina</a>.</p>
     </form>
+
+    <div class="lower-nav">
+        <p>&copy; 2025 SkySync. Alle rechten voorbehouden.</p>
+    </div>
+
     <script src="../js/form.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>

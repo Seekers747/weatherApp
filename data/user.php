@@ -70,6 +70,28 @@ class User
             return false;
         }
     }
+
+    public function sendContactRequest($name, $email, $message) {
+        $sql = "INSERT INTO contact (name, email, message) VALUES (:name, :email, :message)";
+        $placeholder = [
+            "name" => $name,
+            "email" => $email,
+            "message" => $message,
+        ];
+    
+        return $this->pdo->run($sql, $placeholder);
+    }
+    
+    public function sendFeedback($username, $rating, $message) {
+        $sql = "INSERT INTO feedback (username, rating, message) VALUES (:username, :rating, :message)";
+        $placeholder = [
+            "username" => $username,
+            "rating" => $rating,
+            "message" => $message,
+        ];
+    
+        return $this->pdo->run($sql, $placeholder);
+    }
 }
 
 $User = new User($pdo);

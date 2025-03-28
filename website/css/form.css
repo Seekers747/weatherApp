@@ -14,6 +14,7 @@ Variables
     --border-radius: 10px;
     --padding: 20px;
     --max-width: 600px;
+    --max-height: 400px;
 
     --font-family: 'Roboto', sans-serif;
     --font-weight-bold: bold;
@@ -28,14 +29,13 @@ Base Styles
 body {
     margin: 0;
     padding: 0;
-    min-width: 375px;
-    min-height: 667px;
+    min-width: 100vw;
+    min-height: 100vh;
     overflow: hidden;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
     color: var(--primary-text-color);
     font-family: var(--font-family);
     background-color: rgb(135, 206, 235);
@@ -76,7 +76,7 @@ a:hover {
     color: orange;
 }
 
-.navbar a {
+.navbar a, .lower-nav a {
     font-size: 1.5rem;
     font-weight: var(--font-weight-bold);
 }
@@ -92,15 +92,29 @@ a:hover {
     display: none;
 }
 
+.lower-nav {
+    width: 100vw;
+    height: 60px;
+    display: flex;
+    justify-content: space-evenly;
+    padding-top: 10px;
+    align-items: flex-start;
+    position: fixed;
+    bottom: 0;
+    background-color: var(--background-color);
+    backdrop-filter: blur(5px);
+    border: 1px solid var(--border-color);
+}
+
 /*------------------------------------
 
 Forms
 
 ------------------------------------*/
 
-#registerform, #loginform {
-    width: 100%;
+#registerform, #loginform, #contactform, #about-block {
     max-width: var(--max-width);
+    max-height: var(--max-height);
     padding: var(--padding);
     background-color: var(--background-color);
     backdrop-filter: blur(5px);
@@ -331,11 +345,15 @@ Responsive
     color: orange;
 }
 
-#registerform, #loginform {
+#registerform, #loginform, #contactform {
     transition: filter 1s ease;
 }
 
 hr {
     border: 2px solid rgb(0, 0, 0);
     width: 370px;
+}
+
+#about-block {
+    overflow-y: scroll;
 }

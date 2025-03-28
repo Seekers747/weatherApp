@@ -2,27 +2,23 @@
 require "../../data/user.php";
 
 if (session_status() == PHP_SESSION_NONE) {
-    session_start();
+  session_start();
 }
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = $_POST['email'];
-    $password = $_POST['password'];
+  $name = $_POST['name'];
+  $email = $_POST['email'];
+  $message = $_POST['message'];
 
-    $result = $User->loginUser($email, $password);
-
-    if ($result === false) {
-        echo "<div class='notification-error'><h2 class='notification-text-error'>Email or password incorrect!</h2></div>";
-    } else {
-        if (isset($_SESSION['userId'])) {
-            echo "<div class='notification-pass'>
-                    <h2 class='notification-text-pass'>You will be redirected in 5 seconds!</h2>
-                  </div>";
-            header("Refresh:5; url=home.php");
-        } else {
-            var_dump("userId not found in session.");
-        }
-    }
+  if ($User->sendContactRequest($name, $email, $message)) {
+    echo "<div class='notification-pass'>
+    <h2 class='notification-text-pass'>Thank you for contacting us! We will get back to you shortly.</h2>
+    </div>";
+  } else {
+    echo "<div class='notification-error'>
+    <h2 class='notification-text-error'>There was an error sending your message. Please try again later.</h2>
+    </div>";
+  }
 }
 ?>
 
@@ -32,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
+    <title>Contact Us</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <link rel="stylesheet" href="../css/form.css">
     <link rel="stylesheet" href="../css/notification.css">
@@ -50,16 +46,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </ul>
       <div style="padding-top: 5px;">
         <input type="checkbox" id="darkmode-toggle">
-        <label class="darkmode-label" for="darkmode-toggle">
+        <label class="darkmode-label" for="darkmode-toggle"></label>
       </div>
       <div class="burger" onclick="toggleBurgerMenu()">
         <i class="fas fa-solid fa-bars"></i>
       </div>
     </div>
-
     <div class="lower-nav">
-      <a href="login.php">Login</a>
-      <a href="register.php">Register</a>
+      <a href="contact.php">Contact</a>
+      <a href="feedback.php">Feedback</a>
     </div>
 
     <div class="burger-menu">
@@ -108,25 +103,33 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       <div class="cloud x15"></div>
       <div class="cloud x16"></div>
     </div>
-    <form id="loginform" method="POST" class="container my-2">
-      <h2>Login</h2>
+
+    <form id="contactform" method="POST" class="container my-2">
+      <h2>Contact Us</h2>
       <div class="row mb-3 justify-content-center">
-        <div class="col-md-5">
-          <label for="email" class="form-label">Email:</label>
+        <div class="col-md-4">
+          <label for="name" class="form-label">Your Name:</label>
+          <input type="text" class="form-control" name="name" placeholder="Your Name" required>
+        </div>
+
+        <div class="col-md-4">
+          <label for="email" class="form-label">Your Email:</label>
           <input type="email" class="form-control" name="email" placeholder="user@example.com" required>
         </div>
-      </div>
+        </div>
       <div class="row mb-3 justify-content-center">
-        <div class="col-md-5">
-          <label for="password" class="form-label">Password:</label>
-          <input type="password" class="form-control" name="password" placeholder="***********" minlength="8" maxlength="20" required>
+        <div class="col-md-8">
+          <label for="message" class="form-label">Your Message:</label>
+          <textarea class="form-control" name="message" rows="4" placeholder="Write your message here" required></textarea>
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-styling" style="width: 300px;">login</button>
+        <button type="submit" class="btn btn-styling" style="width: 300px;">Send Message</button>
       </div>
     </form>
+
     <script src="../js/form.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>
 </html>
