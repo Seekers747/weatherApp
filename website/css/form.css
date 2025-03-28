@@ -201,9 +201,8 @@ Clouds
 @keyframes moveCloudsSet1 { 0% { transform: translateX(0); } 100% { transform: translateX(-100vw); } }
 @keyframes moveCloudsSet2 { 0% { transform: translateX(100vw); } 100% { transform: translateX(0); } }
 
-.clouds.set1 { animation: moveCloudsSet1 20s linear infinite;}
+.clouds.set1 { animation: moveCloudsSet1 20s linear infinite; }
 .clouds.set2 { animation: moveCloudsSet2 20s linear infinite; }
-
 
 /*------------------------------------
 

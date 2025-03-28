@@ -80,11 +80,7 @@
       <div class="cloud x16"></div>
     </div>
 
-    <div class="container text-center mt-5">
-      <h1>Welcome to SkySync</h1>
-      <p>Your ultimate cloud storage solution!</p>
-      <a href="about.php" class="btn btn-primary">Learn More</a>
-    </div>
+    
 
     <script src="../js/form.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>

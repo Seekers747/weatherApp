@@ -121,8 +121,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <div class="cloud x16"></div>
     </div>
 
-    <form id="loginform" method="POST" class="container my-2">
-      <h2>Login</h2>
+    <form id="registerform" method="POST" class="container my-2">
+      <h2>Register</h2>
       <div class="row mb-3 justify-content-center">
         <div class="col-md-5">
           <label for="email" class="form-label">Email:</label>
@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         </div>
       </div>
       <div class="d-flex justify-content-center">
-        <button type="submit" class="btn btn-styling" style="width: 300px;">login</button>
+        <button type="submit" class="btn btn-styling" style="width: 300px;">register</button>
       </div>
     </form>
     <script src="../js/form.js"></script>
