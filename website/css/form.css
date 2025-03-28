@@ -112,7 +112,7 @@ Forms
 
 ------------------------------------*/
 
-#registerform, #loginform, #contactform, #about-block {
+#registerform, #loginform, #contactform, #about-block, #home-block {
     max-width: var(--max-width);
     max-height: var(--max-height);
     padding: var(--padding);
@@ -353,6 +353,68 @@ hr {
     width: 370px;
 }
 
-#about-block {
+#about-block, #home-block {
     overflow-y: scroll;
+}
+
+/*----------------------------------------------------------------
+
+home page
+
+----------------------------------------------------------------*/
+
+.search-icon-styling {
+    position: absolute;
+    top: 8%;
+    right: 32%;
+    background: none;
+    border: none;
+}
+
+.search-input {
+    padding-right: 30px;
+}
+
+.location {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.location-child {
+    display: flex;
+    flex-direction: row;
+}
+
+.country-txt {
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+.current-date-txt {
+    font-size: 0.8rem;
+}
+
+.weather-summary-container, .weather-conditions-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.temp-txt {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.home-top-row {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.condition-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
 }
